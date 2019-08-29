@@ -1,0 +1,14 @@
+mv parameters*parex1_* parex1/
+mv parameters*parex2_* parex2/
+mv parameters*parex3_* parex3/
+mv parameters*parex4_* parex4/
+mv parameters*parex5_* parex5/
+mv parameters*parex6_* parex6/
+mv parameters*parex7_* parex7/
+mv parameters*parex8_* parex8/
+mv parameters*parex9_* parex9/
+mv parameters*parex10_* parex10/
+mv parameters*parex11_* parex11/
+mv parameters*parex12_* parex12/
+mv parameters*parex13_* parex13/
+mv parameters*parex14_* parex14/
