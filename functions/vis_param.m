@@ -33,8 +33,8 @@ function vis_param(result,state_num,data)
     legend('proliferation','growth arrest','apoptosis','senescence');
     title('exit rates for Pi vs. i');
     xticks([0,1]);
-    xticklabels({'i=1','i=n'});
-    yticks([0,0.024]);
+    xticklabels({'i=0','i=n-1'});
+    yticks([0,0.024,0.028]);
     %yticklabels([]);
     box on;
     
