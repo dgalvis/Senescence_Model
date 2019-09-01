@@ -188,6 +188,6 @@ load comparison_data.mat;
 % disp('press enter');
 % pause;clc;
 %% Supplemental Figure 2 - Trajectory Features (Supplemental Figure 2 comes from here)
-% vis_curvs2D;
+% vis_curvs2D(7); % 1-6 give other features!!!
 % disp('press enter');
 % pause;clc;

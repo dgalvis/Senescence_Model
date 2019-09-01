@@ -14,8 +14,8 @@ imagesc(linspace(0,max_par(1),size(sensitive2D,2)),linspace(0,max_par(1),size(se
 scatter(result(1),result(2),'k','filled');
 colorbar;caxis([0,100]);
 axis([0,max_par(1),0,max_par(1)]);
-ylabel('Pn');
-xlabel('P1');
+ylabel('Pn-1');
+xlabel('P0');
 title('Pi->Pi+1');
 subplot 222;hold all;
 [X,Y] = meshgrid(linspace(0,max_par(2),size(sensitive2D,2)),linspace(0,max_par(2),size(sensitive2D,3)));
@@ -25,8 +25,8 @@ imagesc(linspace(0,max_par(2),size(sensitive2D,2)),linspace(0,max_par(2),size(se
 scatter(result(3),result(4),'k','filled');
 colorbar;caxis([0,100]);
 axis([0,max_par(2),0,max_par(2)]);
-ylabel('Pn');
-xlabel('P1');
+ylabel('P-1');
+xlabel('P0');
 title('Pi->GA');
 subplot 223;hold all;
 [X,Y] = meshgrid(linspace(0,max_par(3),size(sensitive2D,2)),linspace(0,max_par(3),size(sensitive2D,3)));
@@ -36,8 +36,8 @@ imagesc(linspace(0,max_par(3),size(sensitive2D,2)),linspace(0,max_par(3),size(se
 scatter(result(6),result(7),'k','filled');
 colorbar;caxis([0,100]);
 axis([0,max_par(3),0,max_par(3)]);
-ylabel('Pn');
-xlabel('P1');
+ylabel('Pn-1');
+xlabel('P0');
 title('Pi->A');
 subplot 224;hold all;
 %subplot 224;hold all;
@@ -49,8 +49,8 @@ scatter(result(8),result(9),'k','filled');
 colorbar;caxis([0,100]);
 axis([0,max_par(4),0,max_par(4)]);
 title('Pi->S');
-ylabel('Pn');
-xlabel('P1');
+ylabel('Pn-1');
+xlabel('P0');
 
 %% Produce Sensitive Figure 2
 figure();clf;hold all;
