@@ -1,3 +1,43 @@
+%=========================================================================%
+% Routine Run_sens2D.m
+% Created By: Danny Galvis, Darren Walsh, James Rankin
+% This routine extracts % change in the error when individual parameters
+% are increased/decreased. The change in error is compared to the best fit
+% optimization found in parameters_best_final.mat
+
+
+% Output: sensitive2D.mat in the result_files directory. These are 2D because
+% the left and right endpoints P0->X and Pn-1->X are allowed to vary
+% independently and sampling is done in for combinations of both values
+% Output arrays:
+% 1) sensitive2D - 4xptsxpts array 
+% dimension 1: 4 entries [P0->P1, Pn-1->Pn] max_par(1)- max value sampled
+%                        [P0->GA, Pn-1->GA] max_par(2)- " "
+%                        [P0->A,  Pn-1->A]  max_par(3)- " "
+%                        [P0->S,  Pn-1->S]  max_par(4)- " "
+% dimension 2 and 3: linspace(0,max_par(1:4),pts) pts - 400 grid spacing
+%                    dimension 2 P0->X
+%                    dimension 3 Pn-1->X
+
+% 2) curves_flats - 2xpts array. This is 1D for the parameters that do
+% not occur across the 50 proliferative populations.
+% dimension 1: 2 entries [GA->S] max_par(5)- max value sampled
+%                        [A->D]  max_par(5)- " "
+% dimension 2: linspace(0,max_par(5),pts) pts - 400 grid spacing
+
+% 3) curves_fracs - 3xpts array. This is 1D for the parameters that do
+% not occur across the 50 proliferative populations.
+% dimension 1: 3 entries [P_in_H2AX] 
+%                        [G in Ki67]  
+%                        [G in H2AX]  
+% dimension 2: linspace(0,1,pts) pts - 400 grid spacing
+
+% THE RESULTS ARE IN % CHANGE OF ERROR_TOT FROM THE BASELINE BEST PARAMETER
+% SET. IF  >100%, THE RESULT IS SET TO  100% TO MAKE THE IMAGES EASIER TO 
+% INTERPRET
+
+% Warning: These analysis takes a while to run
+%=========================================================================%
 %% Initialize the routine. Change inputs here
 restoredefaultpath;clear;clc;
 % Add paths to auxillary functions and parameter files

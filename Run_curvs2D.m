@@ -1,3 +1,46 @@
+%=========================================================================%
+% Routine Run_curvs2D.m
+% Created By: Danny Galvis, Darren Walsh, James Rankin
+% This routine extracts features of the model for the best parameter set
+% It then compares changes to these features by changing individual
+% parameters.
+
+% In order, these features are:
+% -	Slope of senescent population at 50% senescent cells (sigmoid approx.)
+% -	Slope of proliferative population at 50% proliferative cells (sigmoid approx.)
+% -	Max value of growth arrested cells
+% -	Time to max value of growth arrested cells
+% -	Max value of apoptotic cells
+% -	Time to max value of apoptotic cells
+% -	Time to 85% senescent
+
+% Output: curves2D.mat in the result_files directory. These are 2D because
+% the left and right endpoints P0->X and Pn-1->X are allowed to vary
+% independently and sampling is done in for combinations of both values
+% Output arrays:
+% 1) curve2D - 4xptsxptsx7 array 
+% dimension 1: 4 entries [P0->P1, Pn-1->Pn] max_par(1)- max value sampled
+%                        [P0->GA, Pn-1->GA] max_par(2)- " "
+%                        [P0->A,  Pn-1->A]  max_par(3)- " "
+%                        [P0->S,  Pn-1->S]  max_par(4)- " "
+% dimension 2 and 3: linspace(0,max_par(1:4),pts) pts - 400 grid spacing
+%                    dimension 2 P0->X
+%                    dimension 3 Pn-1->X
+% dimension 4: Features in the order above!!!!
+
+% 2) curves_flats - 2xptsx7 array, This is 1D for the parameters that do
+% not occur across the 50 proliferative populations.
+% dimension 1: 2 entries [GA->S] max_par(5)- max value sampled
+%                        [A->D]  max_par(5)- " "
+% dimension 2: linspace(0,max_par(5),pts) pts - 400 grid spacing
+% dimension 3: Features in the order above
+
+% THE RESULTS ARE IN % CHANGE OF FEATURES FROM THE BASEDLINE BEST PARAMETER
+% SET. IF <-100% or >100%, THE RESULT IS SET TO -100% or 100% TO MAKE THE
+% IMAGES EASIER TO INTERPRET
+
+% Warning: These analysis takes a while to run
+%=========================================================================%
 %% Initialize the routine. Change inputs here
 restoredefaultpath;clear;clc;
 % Add paths to auxillary functions and parameter files
@@ -11,8 +54,10 @@ load(input_file);
 [midpoint_orig_sene,midpoint_orig_prol,max_orig_grar,loc_orig_grar,max_orig_apop,loc_orig_apop,orig_S85] = feature_finder(result,state_num);
 
 pts = 400;
-max_par = [0.05,0.05,0.01,0.01,0.05];%2*max(result(1:10));
+max_par = [0.05,0.05,0.01,0.01,0.05];
 %% Produce Curve Figure 1 - 7
+
+%
 curve2D = 100*ones(4,pts,pts,7);
 count_pars = 1;
 disp('I take a minute to run (but Im worth the wait)');
