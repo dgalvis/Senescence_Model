@@ -1,6 +1,6 @@
 load comparison_data.mat;
 load curves2D.mat;
-
+load('./result_files/parameters_final_best.mat');
 
 %% Produce Curves 1-7
 plot_name = {'slope sene','slope_prol','max grar','loc max grar','max apop','loc max apop','time 85% sene'};

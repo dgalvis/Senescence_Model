@@ -15,13 +15,13 @@ addpath('functions');addpath('result_files');
 load comparison_data.mat;
 
 %% Figure 1B - This illustrates the change in parameters Pi -> X vs. state i
-figure();clf;hold all;
-% import
-input_file = 'parameters_final_best.mat';
-load(input_file);
-% visualize
-vis_param(result,state_num,data);
-disp('press enter');
+% figure();clf;hold all;
+% % import
+% input_file = 'parameters_final_best.mat';
+% load(input_file);
+% % visualize
+% vis_param(result,state_num,data);
+% disp('press enter');
 % pause;clc;
 
 %% Figure 3 - This illustrates the trajectory of th solution and fit to data

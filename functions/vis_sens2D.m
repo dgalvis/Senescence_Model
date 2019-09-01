@@ -1,5 +1,6 @@
 load comparison_data.mat;
 load sensitive2D.mat;
+load('./result_files/parameters_final_best.mat');
 
 
 %% Produce Sensitive Figure 1

@@ -177,12 +177,12 @@ load comparison_data.mat;
 % This plots an illustration of the different features that are analyzed
 % wrt to changes in the parameters values
 
-figure();clf;hold all;
-% import
-input_file = 'parameters_final_best.mat';
-load(input_file);
-% plot features for the parameter set 
-vis_features(result, state_num);
-
-disp('press enter');
-pause;clc;
+% figure();clf;hold all;
+% % import
+% input_file = 'parameters_final_best.mat';
+% load(input_file);
+% % plot features for the parameter set 
+% vis_features(result, state_num);
+% 
+% disp('press enter');
+% pause;clc;
