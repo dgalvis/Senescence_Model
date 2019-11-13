@@ -1,7 +1,7 @@
 function Run_opts_kfold(input)
     %=====================================================================%
     % Routine Run_opts_kfold(input)
-    $
+    
     % Created By: Danny Galvis, Darren Walsh, James Rankin
     % This routine performs the global optimization of the holdout method
     % The input is the index of a parameter that is to be fixed 
@@ -59,12 +59,12 @@ function Run_opts_kfold(input)
     for ii = 1:tot_K
         aux_perm(ii,:) = randperm(length(fit.cum_PD));
     end
-    aux_perm
+    
     rng('shuffle');
 
     for ii = 1:tot_K
         clear keep fit_aux;    
-        keep = randperm(length(fit.cum_PD));
+        keep = aux_perm(ii,:);
         keep = keep(1:round(length(keep)*0.8));
         keep = sort(keep); 
         fn = fieldnames(fit);
